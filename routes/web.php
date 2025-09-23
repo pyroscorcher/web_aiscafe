@@ -9,14 +9,14 @@ use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\NewsController;
 
+
+Route::get('/', function () {return view('/landing');});
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/', function () {return view('/landing');});
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/admin', [AdminController::class, 'index'])
     ->middleware(['auth', 'is_admin'])

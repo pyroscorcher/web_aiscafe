@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ais Cafe - Register</title>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/register.css', 'resources/js/register.js'])
 </head>
 <body class="bg-white min-h-screen flex items-center justify-center relative overflow-hidden">]
 
@@ -91,14 +91,26 @@
 
             <div>
                 <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
-                <input type="password" id="password" name="password" required
-                    class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-amber-500 focus:border-amber-500">
+                <div class="relative">
+                    <input type="password" id="password" name="password" required
+                        class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-amber-500 focus:border-amber-500 pr-10">
+                    <button type="button" id="togglePassword" 
+                        class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-amber-600">
+                        👁
+                    </button>
+                </div>
             </div>
 
             <div>
                 <label for="password_confirmation" class="block text-sm font-medium text-gray-600">Konfirmasi Password</label>
-                <input type="password" id="password_confirmation" name="password_confirmation" required
-                    class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-amber-500 focus:border-amber-500">
+                <div class="relative">
+                    <input type="password" id="password_confirmation" name="password_confirmation" required
+                        class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-amber-500 focus:border-amber-500 pr-10">
+                    <button type="button" id="togglePasswordConfirm" 
+                        class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-amber-600">
+                        👁
+                    </button>
+                </div>
             </div>
 
             <button type="submit"
