@@ -11,7 +11,17 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        //config middleware here
+            $middleware->alias([
+        'is_admin' => \App\Http\Middleware\IsAdmin::class,
+        ]);
+
+    // you can also attach it to an existing group, e.g. 'web', if needed:
+    // $middleware->appendToGroup('web', [
+    //     \App\Http\Middleware\IsAdmin::class,
+    // ]);
+
+    // or prepend, depending on order
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

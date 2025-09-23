@@ -9,16 +9,22 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id_user');          // primary key as int auto-increment
+            $table->string('username')->unique();
             $table->string('name');
+            // phone numbers are better stored as strings (preserve leading zeros, +, spaces)
+            $table->string('telp')->nullable()->unique(); // mapped from no_handphone
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
+            $table->rememberToken();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('role')->default('user');
+
+
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

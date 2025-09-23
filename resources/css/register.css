@@ -1,0 +1,229 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23d4c4a8" width="1200" height="800"/><rect fill="%23b8a082" x="0" y="0" width="400" height="800"/><rect fill="%238b7355" x="400" y="200" width="800" height="400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Simulated cafe background elements */
+        .bg-element {
+            position: absolute;
+            background: rgba(139, 115, 85, 0.1);
+            border-radius: 8px;
+        }
+
+        .bg-element:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            width: 200px;
+            height: 150px;
+        }
+
+        .bg-element:nth-child(2) {
+            top: 20%;
+            right: 8%;
+            width: 180px;
+            height: 120px;
+        }
+
+        .bg-element:nth-child(3) {
+            bottom: 15%;
+            left: 10%;
+            width: 150px;
+            height: 100px;
+        }
+
+        .logo-top-left {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 10;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #c8102e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+
+        .logo-text {
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .register-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            z-index: 5;
+        }
+
+        .register-logo {
+            margin-bottom: 30px;
+        }
+
+        .register-logo-icon {
+            width: 50px;
+            height: 50px;
+            background: #c8102e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+
+        .register-logo-text {
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .form-title {
+            color: #4a5d23;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            background: #fafafa;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #6b8e23;
+            background: white;
+        }
+
+        .form-input::placeholder {
+            color: #999;
+        }
+
+        .sign-up-btn {
+            width: 100%;
+            background: #6b8e23;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sign-up-btn:hover {
+            background: #5a7a1f;
+            transform: translateY(-2px);
+        }
+
+        .sign-up-btn:active {
+            transform: translateY(0);
+        }
+
+        .login-link {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #6b8e23;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 480px) {
+            .register-container {
+                margin: 20px;
+                padding: 30px 25px;
+            }
+            
+            .logo-top-left {
+                top: 20px;
+                left: 20px;
+            }
+        }
+
+        /* Coffee bean decorative elements */
+        .coffee-bean {
+            position: absolute;
+            width: 8px;
+            height: 12px;
+            background: rgba(139, 69, 19, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .coffee-bean:nth-child(4) {
+            top: 15%;
+            left: 15%;
+            animation-delay: -1s;
+        }
+
+        .coffee-bean:nth-child(5) {
+            top: 25%;
+            right: 20%;
+            animation-delay: -3s;
+        }
+
+        .coffee-bean:nth-child(6) {
+            bottom: 20%;
+            right: 15%;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+        }
