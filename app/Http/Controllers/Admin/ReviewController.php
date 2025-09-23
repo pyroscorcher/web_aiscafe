@@ -3,63 +3,56 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $reviews = Review::all();
+        return view('admin.reviews.index', compact('reviews'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.reviews.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name_review' => 'required|string|max:255',
+            'comment' => 'required|string',
+            'rate' => 'required|integer|min:1|max:5',
+        ]);
+
+        Review::create($request->all());
+
+        return redirect()->route('reviews.index')->with('success', 'Review created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(Review $review)
     {
-        //
+        return view('admin.reviews.edit', compact('review'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, Review $review)
     {
-        //
+        $request->validate([
+            'name_review' => 'required|string|max:255',
+            'comment' => 'required|string',
+            'rate' => 'required|integer|min:1|max:5',
+        ]);
+
+        $review->update($request->all());
+
+        return redirect()->route('reviews.index')->with('success', 'Review updated successfully.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy(Review $review)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $review->delete();
+        return redirect()->route('reviews.index')->with('success', 'Review deleted successfully.');
     }
 }

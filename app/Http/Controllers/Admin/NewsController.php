@@ -3,63 +3,70 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $news = News::all();
+        return view('admin.news.index', compact('news'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.news.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required',
+            'date' => 'required|date',
+            'photo_news' => 'nullable|image|max:2048'
+        ]);
+
+        $path = $request->file('photo_news') ? $request->file('photo_news')->store('news', 'public') : null;
+
+        News::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'date' => $request->date,
+            'photo_news' => $path
+        ]);
+
+        return redirect()->route('news.index')->with('success', 'News created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(News $news)
     {
-        //
+        return view('admin.news.edit', compact('news'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, News $news)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required',
+            'date' => 'required|date',
+            'photo_news' => 'nullable|image|max:2048'
+        ]);
+
+        if ($request->hasFile('photo_news')) {
+            $path = $request->file('photo_news')->store('news', 'public');
+            $news->photo_news = $path;
+        }
+
+        $news->update($request->only('title', 'content', 'date', 'photo_news'));
+
+        return redirect()->route('news.index')->with('success', 'News updated successfully.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy(News $news)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $news->delete();
+        return redirect()->route('news.index')->with('success', 'News deleted successfully.');
     }
 }
