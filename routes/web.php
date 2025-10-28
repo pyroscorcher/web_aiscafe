@@ -8,7 +8,8 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\NewsController;
-
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\ArticleController;
 
 Route::get('/', function () {return view('/landing');});
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
@@ -29,4 +30,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::resource('galleries', GalleryController::class);
     Route::resource('reviews', ReviewController::class);
     Route::resource('news', NewsController::class);
+    Route::resource('articles', ArticleController::class);
     });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});

@@ -12,11 +12,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id_user');          // primary key as int auto-increment
+            $table->increments('id_user');
             $table->string('username')->unique();
             $table->string('name');
-            // phone numbers are better stored as strings (preserve leading zeros, +, spaces)
-            $table->string('telp')->nullable()->unique(); // mapped from no_handphone
+            $table->string('telp')->nullable()->unique();
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();

@@ -23,7 +23,16 @@ class AuthController extends Controller
             'telp' => 'nullable|unique:users,telp',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6|confirmed', // expects password_confirmation field
-        ]);
+        ], [
+            'username.required' => 'Username wajib diisi.',
+            'name.required' => 'Nama wajib diisi.',
+            'telp.unique' => 'Nomor telepon sudah terdaftar di akun lain.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'password.required' => 'Password wajib diisi.',
+            'password.min' => 'Password minimal 6 karakter.',
+            'password.confirmed' => 'Konfirmasi password tidak sesuai.',
+    ]);
 
         $user = User::create([
             'username' => $request->username,
@@ -31,7 +40,8 @@ class AuthController extends Controller
             'telp' => $request->telp,
             'email' => $request->email,
             'password' => $request->password, // bcrypt handled by model mutator
-        ]);
+        ]
+    );
 
         Auth::login($user); // auto-login after register
         return redirect('/')->with('success', 'Selamat datang, ' . $user->name);
@@ -53,7 +63,7 @@ class AuthController extends Controller
             'email.required'    => 'Email wajib diisi.',
             'email.email'       => 'Format email tidak valid.',
             'password.required' => 'Password wajib diisi.',
-            'password.min'      => 'Password minimal harus 6 karakter.',
+            'password.min'      => 'Password salah',
         ]);
 
         $credentials = $request->only('email', 'password');

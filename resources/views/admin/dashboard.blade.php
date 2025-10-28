@@ -8,4 +8,6 @@
     <a href="{{ route('galleries.index') }}">Galleries</a>
     <a href="{{ route('news.index') }}">News</a> |
     <a href="{{ route('reviews.index') }}">Reviews</a> |
+    <a href="{{ route('articles.index') }}">Manage Articles</a>
+
 @endsection
