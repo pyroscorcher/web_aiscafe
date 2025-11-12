@@ -45,10 +45,10 @@
                         class="h-12 w-auto object-contain">
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="{{ route('landing') }}" class="text-green-700 hover:text-green-700 transition">Home</a>
+                    <a href="{{ route('landing') }}" class="text-gray-700 hover:text-green-700 transition">Home</a>
                     <a href="{{ route('about') }}" class="text-gray-700 hover:text-green-700 transition">About</a>
                     <a href="{{ route('menu') }}" class="text-gray-700 hover:text-green-700 transition">Menu</a>
-                    <a href="{{ route('artikel') }}" class="text-gray-700 hover:text-green-700 transition">Artikel</a>
+                    <a href="{{ route('artikel') }}" class="text-green-700 hover:text-green-700 transition">Artikel</a>
                 </div>
                 <button class="bg-green-900 text-white px-6 py-2 rounded-full hover:bg-green-800 transition">
                     Login
@@ -114,26 +114,37 @@
             <div class="text-center mb-16">
                 <h2 class="font-display text-5xl mb-4 text-white">Our Best Menu</h2>
             </div>
-
             <div class="grid md:grid-cols-3 gap-8">
-                @forelse ($products as $product)
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
-                        <img src="{{ asset('storage/' . $product->photo_product) }}" 
-                            alt="{{ $product->name }}" 
-                            class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-display text-2xl mb-2 text-green-900">{{ $product->name }}</h3>
-                            <p class="text-gray-600 mb-4">{{ $product->description }}</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-2xl font-semibold text-green-700">
-                                    Rp{{ number_format($product->price, 0, ',', '.') }}
-                                </span>
-                            </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400" alt="Espresso" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl mb-2 text-green-900">Classic Espresso</h3>
+                        <p class="text-gray-600 mb-4">Rich, bold, and perfectly balanced shot of pure coffee bliss</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-semibold text-green-700">Rp15000</span>
                         </div>
                     </div>
-                @empty
-                    <p class="text-white text-center col-span-full">No products available.</p>
-                @endforelse
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
+                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400" alt="Cappuccino" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl mb-2 text-green-900">Velvet Cappuccino</h3>
+                        <p class="text-gray-600 mb-4">Silky microfoam over our signature espresso blend</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-semibold text-green-700">Rp20000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
+                    <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400" alt="Cold Brew" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl mb-2 text-green-900">Cold Brew</h3>
+                        <p class="text-gray-600 mb-4">Smooth, refreshing, steeped for 16 hours</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-semibold text-green-700">Rp20000</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

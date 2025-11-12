@@ -45,9 +45,9 @@
                         class="h-12 w-auto object-contain">
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="{{ route('landing') }}" class="text-green-700 hover:text-green-700 transition">Home</a>
+                    <a href="{{ route('landing') }}" class="text-gray-700 hover:text-green-700 transition">Home</a>
                     <a href="{{ route('about') }}" class="text-gray-700 hover:text-green-700 transition">About</a>
-                    <a href="{{ route('menu') }}" class="text-gray-700 hover:text-green-700 transition">Menu</a>
+                    <a href="{{ route('menu') }}" class="text-green-700 hover:text-green-700 transition">Menu</a>
                     <a href="{{ route('artikel') }}" class="text-gray-700 hover:text-green-700 transition">Artikel</a>
                 </div>
                 <button class="bg-green-900 text-white px-6 py-2 rounded-full hover:bg-green-800 transition">
@@ -84,79 +84,28 @@
         </div>
     </section>
 
-
-        <!-- About Section -->
-    <section id="about" class="py-20 px-4 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600" alt="Coffee Shop Interior" class="rounded-3xl shadow-2xl">
-                </div>
-                <div>
-                    <h2 class="font-display text-5xl mb-6 text-green-900">Our Story</h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Founded in 2015, Brew & Bean began with a simple mission: to bring exceptional coffee to our community. We believe in the art of coffee making, from selecting the finest beans to crafting each drink with precision and care.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Every cup we serve tells a story of dedication, sustainability, and passion. We work directly with farmers, ensuring fair wages and sustainable practices that benefit everyone in the supply chain.
-                    </p>
-                    <button class="bg-green-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-800 transition">
-                        Learn More
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Preview -->
-    <section id="menu" class="py-20 px-4 bg-green-900">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-5xl mb-4 text-white">Our Best Menu</h2>
+    <!-- Menu Section -->
+    <section id="menu" class="pt-24 pb-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Section Title -->
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-green-700">OUR MENU</h2>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <!-- Menu Grid -->
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 @forelse ($products as $product)
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
-                        <img src="{{ asset('storage/' . $product->photo_product) }}" 
-                            alt="{{ $product->name }}" 
-                            class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-display text-2xl mb-2 text-green-900">{{ $product->name }}</h3>
-                            <p class="text-gray-600 mb-4">{{ $product->description }}</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-2xl font-semibold text-green-700">
-                                    Rp{{ number_format($product->price, 0, ',', '.') }}
-                                </span>
-                            </div>
+                    <div class="bg-green-700 text-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition transform">
+                        <img src="{{ asset('storage/' . $product->photo_product) }}" alt="{{ $product->name }}" class="w-full h-40 object-cover">
+                        <div class="p-5">
+                            <h3 class="font-semibold text-lg mb-2">{{ $product->name }}</h3>
+                            <p class="text-sm text-gray-100 mb-2">{{ $product->description }}</p>
+                            <p class="font-bold text-white">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                         </div>
                     </div>
                 @empty
-                    <p class="text-white text-center col-span-full">No products available.</p>
+                    <p class="text-center text-gray-500 col-span-full">No products available.</p>
                 @endforelse
-            </div>
-        </div>
-    </section>
-
-        <!-- Features -->
-    <section class="py-20 px-4 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-8 hover-lift rounded-2xl bg-stone-50">
-                    <div class="text-5xl mb-4">☕</div>
-                    <h3 class="font-display text-2xl mb-3 text-green-900">Premium Beans</h3>
-                    <p class="text-gray-600">Hand-selected beans from the world's finest coffee regions</p>
-                </div>
-                <div class="text-center p-8 hover-lift rounded-2xl bg-stone-50">
-                    <div class="text-5xl mb-4">🔥</div>
-                    <h3 class="font-display text-2xl mb-3 text-green-900">Expert Roasting</h3>
-                    <p class="text-gray-600">Small-batch roasting to perfection by our master roasters</p>
-                </div>
-                <div class="text-center p-8 hover-lift rounded-2xl bg-stone-50">
-                    <div class="text-5xl mb-4">🌿</div>
-                    <h3 class="font-display text-2xl mb-3 text-green-900">Sustainable</h3>
-                    <p class="text-gray-600">Committed to ethical sourcing and environmental responsibility</p>
-                </div>
             </div>
         </div>
     </section>
@@ -186,5 +135,8 @@
             <p>&copy; 2025 Brew & Bean. All rights reserved.</p>
         </div>
     </footer>
+    
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
 </body>
 </html>

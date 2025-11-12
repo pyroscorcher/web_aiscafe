@@ -11,8 +11,13 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ArticleController;
 
-Route::get('/', function () {return view('/landing');});
-Route::get('/about', function () {return view('/about');})->name('about');
+// main routes
+Route::get('/', [ProductController::class, 'indexLanding'])->name('landing');
+Route::get('/menu', [ProductController::class, 'showMenu'])->name('menu');
+Route::get('/about', [GalleryController::class, 'showGallery'])->name('about');
+Route::get('/artikel', function () {return view('artikel');})->name('artikel');
+
+// auth routes
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
@@ -38,3 +43,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
+

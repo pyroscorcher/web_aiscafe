@@ -64,4 +64,10 @@ class GalleryController extends Controller
         $gallery->delete();
         return redirect()->route('galleries.index')->with('success', 'Photo deleted successfully.');
     }
+
+    public function showGallery()
+    {
+        $galleries = Gallery::all();
+        return view('about', compact('galleries'));
+    }
 }

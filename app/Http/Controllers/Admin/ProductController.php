@@ -69,4 +69,18 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('products.index')->with('success', 'Product deleted successfully!');
     }
+
+    // Get menu items for frontend
+    public function showMenu()
+    {
+        $products = Product::all(); // Get all menu items
+        return view('menu', compact('products'));
+    }
+
+    public function indexLanding()
+    {
+        // Fetch only the first 3 products (you can sort by created_at or a “bestseller” column later)
+        $products = Product::take(3)->get();
+        return view('landing', compact('products'));
+    }
 }
