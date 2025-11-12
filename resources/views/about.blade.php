@@ -45,7 +45,7 @@
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#home" class="text-gray-700 hover:text-green-700 transition">Home</a>
-                    <a href="{{ route('about') }}" class="text-gray-700 hover:text-green-700 transition">About</a>
+                    <a href="#menu" class="text-gray-700 hover:text-green-700 transition">About</a>
                     <a href="#about" class="text-gray-700 hover:text-green-700 transition">Menu</a>
                     <a href="#contact" class="text-gray-700 hover:text-green-700 transition">Artikel</a>
                 </div>
@@ -120,7 +120,7 @@
                         <h3 class="font-display text-2xl mb-2 text-green-900">Classic Espresso</h3>
                         <p class="text-gray-600 mb-4">Rich, bold, and perfectly balanced shot of pure coffee bliss</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-2xl font-semibold text-green-700">Rp15000</span>
+                            <span class="text-2xl font-semibold text-green-700">$3.50</span>
                         </div>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
                         <h3 class="font-display text-2xl mb-2 text-green-900">Velvet Cappuccino</h3>
                         <p class="text-gray-600 mb-4">Silky microfoam over our signature espresso blend</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-2xl font-semibold text-green-700">Rp20000</span>
+                            <span class="text-2xl font-semibold text-green-700">$4.50</span>
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
                         <h3 class="font-display text-2xl mb-2 text-green-900">Cold Brew</h3>
                         <p class="text-gray-600 mb-4">Smooth, refreshing, steeped for 16 hours</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-2xl font-semibold text-green-700">Rp20000</span>
+                            <span class="text-2xl font-semibold text-green-700">$5.00</span>
                         </div>
                     </div>
                 </div>

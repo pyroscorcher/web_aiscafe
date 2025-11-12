@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ArticleController;
 
 Route::get('/', function () {return view('/landing');});
+Route::get('/about', function () {return view('/about');})->name('about');
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 

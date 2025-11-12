@@ -10,19 +10,16 @@
 
     <!-- Top-half background image -->
     <div class="absolute top-0 left-0 w-full h-1/2 bg-cover bg-center"
-         style="background-image: url('{{ asset('images/ayam1.jpeg') }}');">
+         style="background-image: url('{{ asset('images/LoginImage.jpg') }}');">
     </div>
 
     <!-- Top left logo -->
     <div class="absolute top-6 left-6 flex items-center space-x-2">
-        <div class="bg-amber-600 p-2 rounded-full">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                <path d="M12 2L3 7L12 12L21 7L12 2Z"/>
-                <path d="M3 17L12 22L21 17"/>
-                <path d="M3 12L12 17L21 12"/>
-            </svg>
+        <div class="flex flex-col items-center mb-4">
+            <img src="{{ asset('images/LogoAis.png') }}" 
+                alt="Ais Cafe Logo" 
+                class="w-30 h-30 object-contain rounded-full">
         </div>
-        <span class="text-xl font-bold text-amber-800">ais cafe</span>
     </div>
 
     <!-- Registration Card -->
@@ -30,14 +27,11 @@
         
         <!-- Logo -->
         <div class="flex flex-col items-center mb-6">
-            <div class="bg-amber-600 p-3 rounded-full">
-                <svg width="25" height="25" viewBox="0 0 24 24" fill="white">
-                    <path d="M12 2L3 7L12 12L21 7L12 2Z"/>
-                    <path d="M3 17L12 22L21 17"/>
-                    <path d="M3 12L12 17L21 12"/>
-                </svg>
+            <div class="flex flex-col items-center mb-4">
+                <img src="{{ asset('images/LogoAis.png') }}" 
+                    alt="Ais Cafe Logo" 
+                    class="w-30 h-30 object-contain rounded-full shadow-md">
             </div>
-            <h1 class="mt-2 text-2xl font-bold text-amber-800">Ais Cafe</h1>
         </div>
 
         <!-- Title -->
