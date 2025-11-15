@@ -15,7 +15,8 @@ use App\Http\Controllers\Admin\ArticleController;
 Route::get('/', [ProductController::class, 'indexLanding'])->name('landing');
 Route::get('/menu', [ProductController::class, 'showMenu'])->name('menu');
 Route::get('/about', [GalleryController::class, 'showGallery'])->name('about');
-Route::get('/artikel', function () {return view('artikel');})->name('artikel');
+Route::get('/artikel', [ArticleController::class, 'showArticle'])->name('artikel');
+Route::get('/artikel/{id}', [ArticleController::class, 'show'])->name('article.detail');
 
 // auth routes
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');

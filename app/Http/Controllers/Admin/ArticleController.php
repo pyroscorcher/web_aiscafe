@@ -109,4 +109,19 @@ class ArticleController extends Controller
 
         return redirect()->route('articles.index')->with('success', 'Article deleted successfully!');
     }
+
+
+        public function showArticle()
+    {
+        // Fetch all articles from DB
+        $articles = Article::orderBy('date', 'desc')->get();
+        return view('artikel', compact('articles'));
+    }
+
+        public function show($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('artikel-detail', compact('article'));
+    }
+
 }

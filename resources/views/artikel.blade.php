@@ -33,26 +33,138 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 <body class="font-body bg-stone-50">
     <!-- Nav Section -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <nav x-data="{ open: false }" class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex items-center h-16 relative">
+
+                <!-- Left: Logo -->
                 <div class="flex items-center h-full">
                     <img src="{{ asset('images/LogoAis.png') }}" 
                         alt="Ais Cafe Logo" 
                         class="h-12 w-auto object-contain">
                 </div>
-                <div class="hidden md:flex space-x-8">
+
+                <!-- Center: Menu (desktop only) -->
+                <div class="hidden md:flex space-x-8 absolute left-1/2 -translate-x-1/2">
                     <a href="{{ route('landing') }}" class="text-gray-700 hover:text-green-700 transition">Home</a>
                     <a href="{{ route('about') }}" class="text-gray-700 hover:text-green-700 transition">About</a>
                     <a href="{{ route('menu') }}" class="text-gray-700 hover:text-green-700 transition">Menu</a>
                     <a href="{{ route('artikel') }}" class="text-green-700 hover:text-green-700 transition">Artikel</a>
                 </div>
-                <button class="bg-green-900 text-white px-6 py-2 rounded-full hover:bg-green-800 transition">
-                    Login
+
+                <!-- Right side: Profile icon + Logout (desktop) -->
+                <div class="hidden md:flex items-center space-x-3 ml-auto">
+
+                    @auth
+                        @php
+                            $destination = Auth::user()->role === 'admin'
+                                ? route('admin.dashboard')
+                                : route('profile.edit');
+                        @endphp
+
+                        <!-- Profile Icon -->
+                        <a href="{{ $destination }}" 
+                        class="inline-flex items-center justify-center bg-green-900 text-white w-12 h-12 rounded-full hover:bg-green-800 transition">
+
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor"
+                                class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a8.25 8.25 0 1115 0v.75H4.5v-.75z" />
+                            </svg>
+                        </a>
+
+                        <!-- Logout -->
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit"
+                                class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-500 transition">
+                                Logout
+                            </button>
+                        </form>
+
+                    @else
+                        <a href="{{ route('login') }}" 
+                        class="inline-block bg-green-900 text-white px-6 py-3 rounded-full hover:bg-green-800 transition">
+                            Login
+                        </a>
+                    @endauth
+                </div>
+
+                <!-- 🍔 Mobile Menu Button -->
+                <button @click="open = !open" 
+                    class="md:hidden ml-auto focus:outline-none transition p-2 rounded-lg hover:bg-gray-100">
+
+                    <!-- Icon changes -->
+                    <svg x-show="!open" xmlns="http://www.w3.org/2000/svg"
+                        class="h-8 w-8 text-green-900" fill="none"
+                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+
+                    <svg x-show="open" xmlns="http://www.w3.org/2000/svg"
+                        class="h-8 w-8 text-green-900" fill="none"
+                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                 </button>
+
+            </div>
+        </div>
+
+        <!-- 📱 Mobile Menu Dropdown -->
+        <div x-show="open" x-transition.origin.top class="md:hidden bg-white border-t border-gray-200 shadow-sm">
+            <div class="px-4 py-4 space-y-4">
+
+                <a href="{{ route('landing') }}" class="block text-gray-800 hover:text-green-700">Home</a>
+                <a href="{{ route('about') }}" class="block text-gray-800 hover:text-green-700">About</a>
+                <a href="{{ route('menu') }}" class="block text-gray-800 hover:text-green-700">Menu</a>
+                <a href="{{ route('artikel') }}" class="block text-green-800 hover:text-green-700">Artikel</a>
+
+                @auth
+                    @php
+                        $destination = Auth::user()->role === 'admin'
+                            ? route('admin.dashboard')
+                            : route('profile.edit');
+                    @endphp
+
+                    <!-- Profile -->
+                    <a href="{{ $destination }}"
+                        class="flex items-center gap-3 bg-green-900 text-white px-6 py-3 rounded-full hover:bg-green-800 transition">
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a8.25 8.25 0 1115 0v.75H4.5v-.75z" />
+                        </svg>
+
+                        Profile
+                    </a>
+
+                    <!-- Logout -->
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit"
+                            class="w-full bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-500 transition">
+                            Logout
+                        </button>
+                    </form>
+
+                @else
+                    <a href="{{ route('login') }}"
+                    class="block bg-green-900 text-white px-6 py-3 rounded-full hover:bg-green-800 transition">
+                        Login
+                    </a>
+                @endauth
+
             </div>
         </div>
     </nav>
@@ -84,91 +196,40 @@
         </div>
     </section>
 
+    <!-- Articles Section -->
+    <section class="py-16 px-4 md:px-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
-        <!-- About Section -->
-    <section id="about" class="py-20 px-4 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600" alt="Coffee Shop Interior" class="rounded-3xl shadow-2xl">
-                </div>
-                <div>
-                    <h2 class="font-display text-5xl mb-6 text-green-900">Our Story</h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Founded in 2015, Brew & Bean began with a simple mission: to bring exceptional coffee to our community. We believe in the art of coffee making, from selecting the finest beans to crafting each drink with precision and care.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Every cup we serve tells a story of dedication, sustainability, and passion. We work directly with farmers, ensuring fair wages and sustainable practices that benefit everyone in the supply chain.
-                    </p>
-                    <button class="bg-green-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-800 transition">
-                        Learn More
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
+            @foreach ($articles as $article)
+            <a href="{{ route('article.detail', $article->id) }}" 
+            class="group block transform hover:-translate-y-1 transition-all">
 
-    <!-- Menu Preview -->
-    <section id="menu" class="py-20 px-4 bg-green-900">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-5xl mb-4 text-white">Our Best Menu</h2>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400" alt="Espresso" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-display text-2xl mb-2 text-green-900">Classic Espresso</h3>
-                        <p class="text-gray-600 mb-4">Rich, bold, and perfectly balanced shot of pure coffee bliss</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-2xl font-semibold text-green-700">Rp15000</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
-                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400" alt="Cappuccino" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-display text-2xl mb-2 text-green-900">Velvet Cappuccino</h3>
-                        <p class="text-gray-600 mb-4">Silky microfoam over our signature espresso blend</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-2xl font-semibold text-green-700">Rp20000</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift">
-                    <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400" alt="Cold Brew" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-display text-2xl mb-2 text-green-900">Cold Brew</h3>
-                        <p class="text-gray-600 mb-4">Smooth, refreshing, steeped for 16 hours</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-2xl font-semibold text-green-700">Rp20000</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden border-l-4 border-green-700 group-hover:shadow-xl transition">
 
-        <!-- Features -->
-    <section class="py-20 px-4 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-8 hover-lift rounded-2xl bg-stone-50">
-                    <div class="text-5xl mb-4">☕</div>
-                    <h3 class="font-display text-2xl mb-3 text-green-900">Premium Beans</h3>
-                    <p class="text-gray-600">Hand-selected beans from the world's finest coffee regions</p>
+                    {{-- Article Image --}}
+                    <img src="{{ asset('storage/' . $article->photo) }}"
+                        alt="{{ $article->title }}"
+                        class="w-full h-60 object-cover group-hover:opacity-90 transition">
+
+                    {{-- Content --}}
+                    <div class="p-6">
+                        <h3 class="font-semibold text-xl text-gray-900 group-hover:text-green-700 transition">
+                            {{ $article->title }}
+                        </h3>
+
+                        <p class="text-gray-600 text-sm mt-3 mb-4 leading-relaxed">
+                            {{ \Illuminate\Support\Str::limit($article->content, 100, '...') }}
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                            {{ \Carbon\Carbon::parse($article->date)->format('d M Y') }}
+                        </p>
+                    </div>
+
                 </div>
-                <div class="text-center p-8 hover-lift rounded-2xl bg-stone-50">
-                    <div class="text-5xl mb-4">🔥</div>
-                    <h3 class="font-display text-2xl mb-3 text-green-900">Expert Roasting</h3>
-                    <p class="text-gray-600">Small-batch roasting to perfection by our master roasters</p>
-                </div>
-                <div class="text-center p-8 hover-lift rounded-2xl bg-stone-50">
-                    <div class="text-5xl mb-4">🌿</div>
-                    <h3 class="font-display text-2xl mb-3 text-green-900">Sustainable</h3>
-                    <p class="text-gray-600">Committed to ethical sourcing and environmental responsibility</p>
-                </div>
-            </div>
+            </a>
+            @endforeach
+
         </div>
     </section>
 
