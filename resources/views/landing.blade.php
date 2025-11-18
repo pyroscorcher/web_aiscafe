@@ -6,10 +6,9 @@
     <title>AIS Cafe</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
-        
-        .font-display { font-family: 'Poppins'; }
-        .font-body { font-family: 'Poppins'; }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');    
+        .font-display { font-family: 'Poppins', sans-serif; }
+        .font-body { font-family: 'Poppins', sans-serif; }
         
         .hero-gradient {
             background: linear-gradient(135deg, #2d1b00 0%, #5c3a1e 50%, #8b5a3c 100%);

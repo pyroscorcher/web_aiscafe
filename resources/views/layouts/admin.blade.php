@@ -7,6 +7,11 @@
 
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');    
+        .font-display { font-family: 'Poppins', sans-serif; }
+        .font-body { font-family: 'Poppins', sans-serif; }
+    </style>
 </head>
 
 <body class="bg-gray-50">

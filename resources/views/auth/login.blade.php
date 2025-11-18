@@ -80,14 +80,14 @@
             </div>
 
             <button type="submit"
-                class="w-full py-2 px-4 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg shadow-md transition">
+                class="w-full py-2 px-4 bg-green-800 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md transition">
                 Login
             </button>
         </form>
 
         <p class="mt-4 text-center text-sm text-gray-600">
             Belum punya akun?
-            <a href="{{ route('register.form') }}" class="text-amber-600 hover:underline font-medium">Daftar</a>
+            <a href="{{ route('register.form') }}" class="text-green-600 hover:underline font-medium">Daftar</a>
         </p>
     </div>
 

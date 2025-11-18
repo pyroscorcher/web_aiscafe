@@ -14,7 +14,7 @@
     @endif
 
     <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow">
-        <thead class="bg-amber-600 text-white">
+        <thead class="bg-gray-200 text-black">
             <tr>
                 <th class="px-4 py-2 text-left">Title</th>
                 <th class="px-4 py-2 text-left">Date</th>

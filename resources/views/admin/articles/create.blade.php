@@ -19,17 +19,17 @@
 
         <div>
             <label for="title" class="block text-sm font-medium text-gray-600">Title</label>
-            <input type="text" name="title" id="title" class="w-full border-gray-300 rounded-md shadow-sm mt-1" required>
+            <input type="text" name="title" id="title" class="w-full border-gray-300 rounded-md shadow-md mt-1" required>
         </div>
 
         <div>
             <label for="content" class="block text-sm font-medium text-gray-600">Content</label>
-            <textarea name="content" id="content" rows="5" class="w-full border-gray-300 rounded-md shadow-sm mt-1" required></textarea>
+            <textarea name="content" id="content" rows="5" class="w-full border-gray-300 rounded-md shadow-md mt-1" required></textarea>
         </div>
 
         <div>
             <label for="date" class="block text-sm font-medium text-gray-600">Date</label>
-            <input type="date" name="date" id="date" class="w-full border-gray-300 rounded-md shadow-sm mt-1" required>
+            <input type="date" name="date" id="date" class="w-full border-gray-300 rounded-md shadow-md mt-1" required>
         </div>
 
         <div>

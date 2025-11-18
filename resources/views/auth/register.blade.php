@@ -108,14 +108,14 @@
             </div>
 
             <button type="submit"
-                class="w-full py-2 px-4 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg shadow-md transition">
+                class="w-full py-2 px-4 bg-green-800 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md transition">
                 Daftar
             </button>
         </form>
 
         <p class="mt-6 text-center text-sm text-gray-600">
             Sudah punya akun? 
-            <a href="{{ route('login.form') }}" class="text-amber-600 hover:underline font-medium">Login</a>
+            <a href="{{ route('login.form') }}" class="text-green-600 hover:underline font-medium">Login</a>
         </p>
     </div>
 

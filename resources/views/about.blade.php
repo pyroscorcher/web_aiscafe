@@ -6,10 +6,9 @@
     <title>AIS Cafe</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
-        
-        .font-display { font-family: 'Poppins'; }
-        .font-body { font-family: 'Poppins'; }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');    
+        .font-display { font-family: 'Poppins', sans-serif; }
+        .font-body { font-family: 'Poppins', sans-serif; }
         
         .hero-gradient {
             background: linear-gradient(135deg, #2d1b00 0%, #5c3a1e 50%, #8b5a3c 100%);
@@ -197,7 +196,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="font-display text-5xl mb-6 text-green-900">Our Story</h2>
+                    <h2 class="font-display text-5xl mb-6 text-green-900 ">Our story</h2>
                     <p class="text-lg text-gray-600 mb-6">
                         Founded in 2015, Brew & Bean began with a simple mission: to bring exceptional coffee to our community. We believe in the art of coffee making, from selecting the finest beans to crafting each drink with precision and care.
                     </p>
@@ -222,7 +221,7 @@
         class="py-16 bg-white"
     >
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-green-900 mb-10">Gallery</h2>
+            <h2 class="text-4xl font-bold text-center text-green-900 mb-10">GALLERY</h2>
 
             <!-- Slider Wrapper -->
             <div class="relative">
