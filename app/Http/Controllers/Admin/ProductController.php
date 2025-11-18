@@ -76,11 +76,4 @@ class ProductController extends Controller
         $products = Product::all(); // Get all menu items
         return view('menu', compact('products'));
     }
-
-    public function indexLanding()
-    {
-        // Fetch only the first 3 products (you can sort by created_at or a “bestseller” column later)
-        $products = Product::take(3)->get();
-        return view('landing', compact('products'));
-    }
 }

@@ -10,9 +10,11 @@ use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\LandingController;
+use App\Http\Controllers\ReviewUserController;
 
 // main routes
-Route::get('/', [ProductController::class, 'indexLanding'])->name('landing');
+Route::get('/', [LandingController::class, 'indexLanding'])->name('landing');
 Route::get('/menu', [ProductController::class, 'showMenu'])->name('menu');
 Route::get('/about', [GalleryController::class, 'showGallery'])->name('about');
 Route::get('/artikel', [ArticleController::class, 'showArticle'])->name('artikel');
@@ -40,8 +42,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::resource('articles', ArticleController::class);
     });
 
+// Profile routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
 
+// USER review creation routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('/write-review', [ReviewUserController::class, 'create'])->name('user.review.create');
+    Route::post('/write-review', [ReviewUserController::class, 'store'])->name('user.review.store');
+});

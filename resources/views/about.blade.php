@@ -173,22 +173,19 @@
     <!-- Hero Section -->
     <section id="home" 
         class="relative h-[90vh] flex items-center justify-center bg-cover bg-center"
-        style="background-image: url('{{ asset('images/LoginImage.jpg') }}');">
+        style="background-image: url('{{ asset('images/image3.jpg') }}');">
         
         <!-- Overlay (dark translucent layer) -->
         <div class="absolute inset-0 bg-black/40"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-            <div class="grid md:grid-cols-3 gap-10 items-center">
+            <div class="grid md:grid-cols-1 gap-10 items-center">
                 
-                <!-- Left Content -->
+                <!-- Content -->
                 <div class="text-white space-y-6">
                     <h1 class="font-display text-5xl md:text-6xl font-bold leading-tight">
-                        About Us
+                        ABOUT US
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-100 max-w-lg">
-                        Contents
-                    </p>
                 </div>
             </div>
         </div>
@@ -215,31 +212,66 @@
         </div>
     </section>
 
-    <!-- Gallery -->
-    <section x-data="{ open:false, imageSrc:'', imageTitle:'' }" class="py-16 bg-white">
+    <!-- Gallery Section -->
+    <section 
+        x-data="{ 
+            open:false, 
+            imageSrc:'', 
+            imageTitle:'' 
+        }" 
+        class="py-16 bg-white"
+    >
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-green-900 mb-10">Gallery</h2>
 
-            <!-- Gallery Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                @foreach ($galleries as $gallery)
+            <!-- Slider Wrapper -->
+            <div class="relative">
+
+                <!-- Left Arrow -->
+                <button 
+                    @click="slider.scrollBy({ left: -300, behavior: 'smooth' })"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white shadow p-3 rounded-full z-10"
+                >
+                    ‹
+                </button>
+
+                <!-- Horizontal Scroll Container -->
+                <div 
+                    x-ref="slider"
+                    class="flex space-x-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth px-2"
+                >
+                    @foreach ($galleries as $gallery)
                     <div 
-                        class="relative group overflow-hidden rounded-lg shadow-md cursor-pointer"
+                        class="min-w-[300px] snap-start flex-shrink-0 cursor-pointer relative group"
                         @click="
                             open = true;
                             imageSrc = '{{ asset('storage/' . $gallery->photo) }}';
                             imageTitle = '{{ $gallery->photo_name }}';
                         "
                     >
-                        <img src="{{ asset('storage/' . $gallery->photo) }}" 
+                        <img 
+                            src="{{ asset('storage/' . $gallery->photo) }}" 
                             alt="{{ $gallery->photo_name }}" 
-                            class="w-full h-64 object-cover transform transition duration-500 group-hover:scale-110">
+                            class="h-64 w-full object-cover rounded-lg shadow-md"
+                        >
 
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                            <h3 class="text-white text-lg font-semibold">{{ $gallery->photo_name }}</h3>
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+                            <h3 class="text-white font-semibold text-lg">
+                                {{ $gallery->photo_name }}
+                            </h3>
                         </div>
                     </div>
-                @endforeach
+                    @endforeach
+                </div>
+
+                <!-- Right Arrow -->
+                <button 
+                    @click="slider.scrollBy({ left: 300, behavior: 'smooth' })"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white shadow p-3 rounded-full z-10"
+                >
+                    ›
+                </button>
+
             </div>
         </div>
 
@@ -251,15 +283,12 @@
         >
             <div class="bg-white p-4 rounded-lg shadow-xl max-w-3xl w-full">
 
-                <!-- Large Image -->
                 <img :src="imageSrc" :alt="imageTitle" class="w-full max-h-[75vh] object-contain rounded">
 
-                <!-- Title -->
                 <p class="text-center text-lg text-gray-700 mt-3" x-text="imageTitle"></p>
 
-                <!-- Close Button -->
                 <button 
-                    @click="open = false"
+                    @click="open=false"
                     class="mt-4 w-full bg-green-700 text-white py-3 rounded-lg hover:bg-green-800 transition"
                 >
                     Close
@@ -268,54 +297,100 @@
         </div>
     </section>
 
-        <!-- Bumper  -->
-    <section id="home" 
-        class="relative h-[90vh] flex items-center justify-center bg-cover bg-center"
-        style="background-image: url('{{ asset('images/LoginImage.jpg') }}');">
-        
-        <!-- Overlay (dark translucent layer) -->
-        <div class="absolute inset-0 bg-black/40"></div>
+    <!-- Instagram Section -->
+    <a href="https://www.instagram.com/aiscafeandresto/" target="_blank" class="block">
+        <section id="home" 
+            class="relative h-[90vh] flex items-center justify-center bg-cover bg-center cursor-pointer"
+            style="background-image: url('{{ asset('images/image5.jpg') }}');">
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-            <div class="grid md:grid-cols-3 gap-10 items-center">
-                
-                <!-- Left Content -->
-                <div class="text-white space-y-6">
-                    <h1 class="font-display text-5xl md:text-6xl font-bold leading-tight">
-                        About Us
-                    </h1>
-                    <p class="text-lg md:text-xl text-gray-100 max-w-lg">
-                        Contents
-                    </p>
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black/40"></div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+
+                    <!-- Left Content -->
+                    <div class="text-white space-y-6">
+                        <img src="{{ asset('images/icons/instagram.png') }}" 
+                            alt="Instagram" class="w-20">
+                        <h1 class="font-display text-5xl md:text-6xl font-bold leading-tight">
+                            FOLLOW US ON INSTAGRAM
+                        </h1>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Location Section -->
-    <section id="contact" class="py-20 px-4 bg-white text-green-900">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="font-display text-5xl mb-6 text-green-900">Visit Us Today</h2>
-            <p class="text-xl text-green-100 mb-8 text-green-900">
-                123 Coffee Street, Brew City, BC 12345<br/>
-                Open Daily: 7:00 AM - 8:00 PM
-            </p>
-            <div class="flex justify-center gap-6 mb-8">
-                <a href="#" class="text-3xl hover:text-green-300 transition">📧</a>
-                <a href="#" class="text-3xl hover:text-green-300 transition">📱</a>
-                <a href="#" class="text-3xl hover:text-green-300 transition">📍</a>
-            </div>
-            <button class="bg-green-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-800 transition transform hover:scale-105">
-                Get Directions
-            </button>
-        </div>
-    </section>
+        </section>
+    </a>
 
     <!-- Footer -->
-    <footer class="bg-stone-900 text-stone-400 py-8 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <p>&copy; 2025 Brew & Bean. All rights reserved.</p>
+    <footer class="bg-[#8BC46A] text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 items-start">
+
+                <!-- Logo -->
+                <div>
+                    <img src="{{ asset('images/LogoAis.png') }}" 
+                        alt="Ais Cafe Logo" 
+                        class="w-48 mb-4">
+                </div>
+
+                <!-- Address + Email -->
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-location-dot text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Address:</h4>
+                            <p class="text-sm opacity-90 w-52">
+                                Lorem ipsum dolor sit amet consectetur. Morbi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-envelope text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Email:</h4>
+                            <p class="text-sm opacity-90">Sapien scelerisque</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phone + Social -->
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-phone text-white text-3xl"></i>
+                        <div>
+                            <h4 class="font-semibold text-lg">+62 897-9792-939</h4>
+                            <p class="text-sm opacity-90">Lorem ipsum dolor sit amet</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-brands fa-facebook-f text-white text-xl"></i>
+                        </div>
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-brands fa-instagram text-white text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Divider -->
+            <div class="mt-12 border-t border-white/20 pt-6 text-center">
+                <p class="text-sm opacity-90">
+                    Copyright © 2025 Raden Wijaya All rights reserved.
+                </p>
+            </div>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
+
 </body>
 </html>

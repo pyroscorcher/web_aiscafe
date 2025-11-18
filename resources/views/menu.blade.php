@@ -172,25 +172,18 @@
     <!-- Hero Section -->
     <section id="home" 
         class="relative h-[90vh] flex items-center justify-center bg-cover bg-center"
-        style="background-image: url('{{ asset('images/LoginImage.jpg') }}');">
+        style="background-image: url('{{ asset('images/image6.jpg') }}');">
         
         <!-- Overlay (dark translucent layer) -->
         <div class="absolute inset-0 bg-black/40"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-            <div class="grid md:grid-cols-2 gap-10 items-center">
-                
+            <div class="grid gap-10 items-center">
                 <!-- Left Content -->
                 <div class="text-white space-y-6">
                     <h1 class="font-display text-5xl md:text-6xl font-bold leading-tight">
-                        AIS CAFE
+                        OUR MENU
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-100 max-w-lg">
-                        Natoque at odio elementum ullamcorper ac sagittis ut vel ornare.
-                    </p>
-                    <button class="bg-green-900 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full shadow-md transition duration-300">
-                        See More
-                    </button>
                 </div>
             </div>
         </div>
@@ -200,10 +193,10 @@
     <section id="menu" class="pt-24 pb-16 bg-white">
         <div class="max-w-7xl mx-auto px-4">
 
-            <!-- Section Title -->
+            <!-- Section Title
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-green-700">OUR MENU</h2>
-            </div>
+                <h2 class="text-4xl font-bold text-green-700">Menu</h2>
+            </div> -->
 
             <!-- Menu Grid -->
             <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -229,31 +222,91 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 bg-green-900 text-white">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="font-display text-5xl mb-6">Visit Us Today</h2>
-            <p class="text-xl text-green-100 mb-8">
-                123 Coffee Street, Brew City, BC 12345<br/>
-                Open Daily: 7:00 AM - 8:00 PM
-            </p>
-            <div class="flex justify-center gap-6 mb-8">
-                <a href="#" class="text-3xl hover:text-green-300 transition">📧</a>
-                <a href="#" class="text-3xl hover:text-green-300 transition">📱</a>
-                <a href="#" class="text-3xl hover:text-green-300 transition">📍</a>
-            </div>
-            <button class="bg-white text-green-900 px-8 py-4 rounded-full font-semibold hover:bg-green-50 transition transform hover:scale-105">
-                Get Directions
-            </button>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-stone-900 text-stone-400 py-8 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <p>&copy; 2025 Brew & Bean. All rights reserved.</p>
+    <footer class="bg-[#8BC46A] text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 items-start">
+
+                <!-- Logo -->
+                <div>
+                    <img src="{{ asset('images/LogoAis.png') }}" 
+                        alt="Ais Cafe Logo" 
+                        class="w-48 mb-4">
+                </div>
+
+                <!-- Address + Email -->
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-location-dot text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Address:</h4>
+                            <p class="text-sm opacity-90 w-52">
+                                Lorem ipsum dolor sit amet consectetur. Morbi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-envelope text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Email:</h4>
+                            <p class="text-sm opacity-90">Sapien scelerisque</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phone + Social -->
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-phone text-white text-3xl"></i>
+                        <div>
+                            <h4 class="font-semibold text-lg">+62 897-9792-939</h4>
+                            <p class="text-sm opacity-90">Lorem ipsum dolor sit amet</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-brands fa-facebook-f text-white text-xl"></i>
+                        </div>
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-brands fa-instagram text-white text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Divider -->
+            <div class="mt-12 border-t border-white/20 pt-6 text-center">
+                <p class="text-sm opacity-90">
+                    Copyright © 2025 Raden Wijaya All rights reserved.
+                </p>
+            </div>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
+
+        <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50 hidden">
+        <img src="{{ asset('images/loading.gif') }}" alt="Loading..." class="w-24 h-24">
+    </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const forms = document.querySelectorAll("form");
+
+        forms.forEach(form => {
+            form.addEventListener("submit", function () {
+                document.getElementById("loadingOverlay").classList.remove("hidden");
+            });
+        });
+    });
+</script>
     
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 

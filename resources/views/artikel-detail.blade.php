@@ -156,41 +156,91 @@
         </div>
     </nav>
 
-<!-- ARTICLE DETAIL -->
-<section class="pt-32 pb-20 px-4 md:px-10 max-w-4xl mx-auto">
-    <div class="bg-white shadow-lg rounded-xl overflow-hidden">
-        <img src="{{ asset('storage/' . $article->photo) }}" class="w-full h-96 object-cover" alt="{{ $article->title }}">
-        <div class="p-8">
-            <h1 class="text-4xl font-display font-bold text-gray-900 mb-4">{{ $article->title }}</h1>
-            <p class="text-sm text-gray-500 mb-6">{{ \Carbon\Carbon::parse($article->date)->format('d M Y') }}</p>
-            <div class="prose max-w-none text-gray-800 leading-relaxed">{!! nl2br(e($article->content)) !!}</div>
+    <!-- ARTICLE DETAIL -->
+    <section class="pt-32 pb-20 px-4 md:px-10 max-w-4xl mx-auto">
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+            <img src="{{ asset('storage/' . $article->photo) }}" class="w-full h-96 object-cover" alt="{{ $article->title }}">
+            <div class="p-8">
+                <h1 class="text-4xl font-display font-bold text-gray-900 mb-4">{{ $article->title }}</h1>
+                <p class="text-sm text-gray-500 mb-6">{{ \Carbon\Carbon::parse($article->date)->format('d M Y') }}</p>
+                <div class="prose max-w-none text-gray-800 leading-relaxed">{!! nl2br(e($article->content)) !!}</div>
+            </div>
         </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 md:px-16 mb-10">
-        <a href="{{ url()->previous() }}" class="inline-block bg-green-900 text-white px-6 py-3 rounded-full hover:bg-green-800 transition">
-            ← Back
-        </a>
-    </div>
-</section>
-
-<!-- CONTACT SECTION -->
-<section class="py-20 px-4 bg-green-900 text-white">
-    <div class="max-w-7xl mx-auto text-center">
-        <h2 class="font-display text-5xl mb-6">Visit Us Today</h2>
-        <p class="text-xl text-green-100 mb-8">123 Coffee Street, Brew City<br>Open Daily: 7AM - 8PM</p>
-        <div class="flex justify-center gap-6 mb-8">
-            <a href="#" class="text-3xl hover:text-green-300">📧</a>
-            <a href="#" class="text-3xl hover:text-green-300">📱</a>
-            <a href="#" class="text-3xl hover:text-green-300">📍</a>
+        <div class="max-w-7xl mx-auto px-4 md:px-16 mb-10">
+            <a href="{{ url()->previous() }}" class="inline-block bg-green-900 text-white px-6 py-3 rounded-full hover:bg-green-800 transition">
+                ← Back
+            </a>
         </div>
-        <button class="bg-white text-green-900 px-8 py-4 rounded-full font-semibold hover:bg-green-50 hover:scale-105 transition">Get Directions</button>
-    </div>
-</section>
+    </section>
 
-<!-- FOOTER -->
-<footer class="bg-stone-900 text-stone-400 py-8 text-center">
-    <p>&copy; 2025 Brew & Bean. All rights reserved.</p>
-</footer>
+    <!-- Footer -->
+    <footer class="bg-[#8BC46A] text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 items-start">
+
+                <!-- Logo -->
+                <div>
+                    <img src="{{ asset('images/LogoAis.png') }}" 
+                        alt="Ais Cafe Logo" 
+                        class="w-48 mb-4">
+                </div>
+
+                <!-- Address + Email -->
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-location-dot text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Address:</h4>
+                            <p class="text-sm opacity-90 w-52">
+                                Lorem ipsum dolor sit amet consectetur. Morbi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-envelope text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Email:</h4>
+                            <p class="text-sm opacity-90">Sapien scelerisque</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phone + Social -->
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-phone text-white text-3xl"></i>
+                        <div>
+                            <h4 class="font-semibold text-lg">+62 897-9792-939</h4>
+                            <p class="text-sm opacity-90">Lorem ipsum dolor sit amet</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-brands fa-facebook-f text-white text-xl"></i>
+                        </div>
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-brands fa-instagram text-white text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Divider -->
+            <div class="mt-12 border-t border-white/20 pt-6 text-center">
+                <p class="text-sm opacity-90">
+                    Copyright © 2025 Raden Wijaya All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
 
 </body>
 </html>

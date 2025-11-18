@@ -34,6 +34,7 @@
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
 </head>
 <body class="font-body bg-stone-50">
     <!-- Nav Section -->
@@ -172,7 +173,7 @@
     <!-- Hero Section -->
     <section id="home" 
         class="relative h-[90vh] flex items-center justify-center bg-cover bg-center"
-        style="background-image: url('{{ asset('images/LoginImage.jpg') }}');">
+        style="background-image: url('{{ asset('images/image1.jpg') }}');">
         
         <!-- Overlay (dark translucent layer) -->
         <div class="absolute inset-0 bg-black/40"></div>
@@ -188,9 +189,6 @@
                     <p class="text-lg md:text-xl text-gray-100 max-w-lg">
                         Natoque at odio elementum ullamcorper ac sagittis ut vel ornare.
                     </p>
-                    <button class="bg-green-900 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full shadow-md transition duration-300">
-                        See More
-                    </button>
                 </div>
             </div>
         </div>
@@ -202,7 +200,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600" alt="Coffee Shop Interior" class="rounded-3xl shadow-2xl">
+                    <img src="{{ asset('images/image2.jpg') }}" alt="Coffee Shop Interior" class="rounded-3xl shadow-2xl">
                 </div>
                 <div>
                     <h2 class="font-display text-5xl mb-6 text-green-900">Our Story</h2>
@@ -212,9 +210,9 @@
                     <p class="text-lg text-gray-600 mb-6">
                         Every cup we serve tells a story of dedication, sustainability, and passion. We work directly with farmers, ensuring fair wages and sustainable practices that benefit everyone in the supply chain.
                     </p>
-                    <button class="bg-green-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-800 transition">
+                    <a href="{{ route('menu') }}" class="bg-green-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-800 transition">
                         Learn More
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -250,53 +248,342 @@
         </div>
     </section>
 
-        <!-- Features -->
+    <!-- Why People Choose Us -->
     <section class="py-20 px-4 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-8 hover-lift rounded-2xl bg-stone-50">
-                    <div class="text-5xl mb-4">☕</div>
-                    <h3 class="font-display text-2xl mb-3 text-green-900">Premium Beans</h3>
-                    <p class="text-gray-600">Hand-selected beans from the world's finest coffee regions</p>
+        <div class="max-w-6xl mx-auto text-center">
+
+            <!-- Section Title -->
+            <div class="flex justify-center mb-4">
+                <div class="w-12 h-[2px] bg-green-900"></div>
+            </div>
+
+            <h2 class="text-3xl font-bold text-green-900">Why people choose us?</h2>
+
+            <p class="text-gray-600 max-w-2xl mx-auto mt-4">
+                Lorem ipsum dolor sit amet consectetur. Dolor elit vitae nunc varius. 
+                Facilisis eget cras sit semper sit enim. Turpis aliquet ac ut ac donec ut. 
+                Sagittis vestibulum at quis non massa netus.
+            </p>
+
+            <!-- Feature Grid -->
+            <div class="grid md:grid-cols-3 gap-12 mt-16">
+
+                <!-- Feature 1 -->
+                <div class="text-center">
+                    <img src="/images/icons/menu.png" alt="" class="mx-auto mb-6 w-12 h-12 opacity-80">
+                    <h3 class="text-lg font-semibold text-green-900 tracking-wide">MENU FOR EVERY TASTE</h3>
+                    <p class="text-gray-600 mt-3 text-sm leading-relaxed">
+                        Lorem ipsum dolor sit amet consectetur.
+                        Felis eget sit sit scelerisque vestibulum.
+                        Urna faucibus amet massa lacus lorem.
+                    </p>
                 </div>
-                <div class="text-center p-8 hover-lift rounded-2xl bg-stone-50">
-                    <div class="text-5xl mb-4">🔥</div>
-                    <h3 class="font-display text-2xl mb-3 text-green-900">Expert Roasting</h3>
-                    <p class="text-gray-600">Small-batch roasting to perfection by our master roasters</p>
+
+                <!-- Feature 2 -->
+                <div class="text-center">
+                    <img src="/images/icons/beans.png" alt="" class="mx-auto mb-6 w-12 h-12 opacity-80">
+                    <h3 class="text-lg font-semibold text-green-900 tracking-wide">ALWAYS QUALITY BEANS</h3>
+                    <p class="text-gray-600 mt-3 text-sm leading-relaxed">
+                        Lorem ipsum dolor sit amet consectetur.
+                        Felis eget sit sit scelerisque vestibulum.
+                        Urna faucibus amet massa lacus lorem.
+                    </p>
                 </div>
-                <div class="text-center p-8 hover-lift rounded-2xl bg-stone-50">
-                    <div class="text-5xl mb-4">🌿</div>
-                    <h3 class="font-display text-2xl mb-3 text-green-900">Sustainable</h3>
-                    <p class="text-gray-600">Committed to ethical sourcing and environmental responsibility</p>
+
+                <!-- Feature 3 -->
+                <div class="text-center">
+                    <img src="/images/icons/barista.png" alt="" class="mx-auto mb-6 w-12 h-12 opacity-80">
+                    <h3 class="text-lg font-semibold text-green-900 tracking-wide">EXPERIENCED BARISTA</h3>
+                    <p class="text-gray-600 mt-3 text-sm leading-relaxed">
+                        Lorem ipsum dolor sit amet consectetur.
+                        Felis eget sit sit scelerisque vestibulum.
+                        Urna faucibus amet massa lacus lorem.
+                    </p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 bg-green-900 text-white">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="font-display text-5xl mb-6">Visit Us Today</h2>
-            <p class="text-xl text-green-100 mb-8">
-                123 Coffee Street, Brew City, BC 12345<br/>
-                Open Daily: 7:00 AM - 8:00 PM
-            </p>
-            <div class="flex justify-center gap-6 mb-8">
-                <a href="#" class="text-3xl hover:text-green-300 transition">📧</a>
-                <a href="#" class="text-3xl hover:text-green-300 transition">📱</a>
-                <a href="#" class="text-3xl hover:text-green-300 transition">📍</a>
+    <!-- Latest News Section -->
+    <section x-data="{ limit: 3 }" class="py-16 px-4">
+        <h2 class="text-4xl font-bold text-center text-[#3B5D28] mb-12">
+            Berita Terkini
+        </h2>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+            @foreach($news as $index => $item)
+            <div 
+                x-show="{{ $index }} < limit" 
+                x-transition 
+                class="bg-white shadow-md border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition duration-300"
+            >
+                <div class="h-56 w-full overflow-hidden">
+                    <img 
+                        src="{{ asset('storage/'.$item->photo_news) }}"
+                        alt="{{ $item->title }}"
+                        class="w-full h-full object-cover hover:scale-110 transition duration-300"
+                    >
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                        {{ $item->title }}
+                    </h3>
+
+                    <p class="text-sm text-gray-500 mb-3">
+                        {{ \Carbon\Carbon::parse($item->date)->format('F d, Y') }}
+                    </p>
+
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        {{ Str::limit(strip_tags($item->content), 120) }}
+                    </p>
+                </div>
             </div>
-            <button class="bg-white text-green-900 px-8 py-4 rounded-full font-semibold hover:bg-green-50 transition transform hover:scale-105">
-                Get Directions
-            </button>
+            @endforeach
         </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section x-data="{ current: 0, openModal: false }" class="py-20 px-4 bg-white">
+        <h2 class="text-4xl font-bold text-center text-[#3B5D28] mb-12">
+            Apa Kata Mereka?
+        </h2>
+
+        <!-- Wrapper -->
+        <div class="relative max-w-7xl mx-auto overflow-hidden">
+
+            <!-- Slider -->
+            <div 
+                class="flex transition-transform duration-700"
+                :style="`transform: translateX(-${current * 100}%)`"
+            >
+                @foreach($reviews->chunk(3) as $group)
+                <div class="min-w-full grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
+                    
+                    @foreach($group as $item)
+                    <div class="bg-white rounded-2xl shadow-md border border-gray-200 p-8 relative">
+
+                        <!-- Quote Icon -->
+                        <div class="text-[#6CAB54] text-4xl mb-4">“</div>
+
+                        <!-- Comment -->
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            {{ Str::limit($item->comment, 140) }}
+                        </p>
+
+                        <!-- Reviewer -->
+                        <div class="flex items-center gap-4">
+
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-sm">
+                                    {{ $item->name_review }}
+                                </h4>
+                                <p class="text-xs text-gray-500">Pelanggan</p>
+
+                                <!-- Rating -->
+                                <div class="flex mt-1">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        <svg 
+                                            class="w-4 h-4 {{ $i <= $item->rate ? 'text-yellow-400' : 'text-gray-300' }}" 
+                                            fill="currentColor" 
+                                            viewBox="0 0 20 20"
+                                        >
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.955a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.449a1 1 0 00-.364 1.118l1.285 3.955c.3.922-.755 1.688-1.54 1.118l-3.37-2.449a1 1 0 00-1.175 0l-3.37 2.449c-.784.57-1.838-.196-1.539-1.118l1.285-3.955a1 1 0 00-.364-1.118L2.525 9.382c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.955z"/>
+                                        </svg>
+                                    @endfor
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    @endforeach
+
+                </div>
+                @endforeach
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="flex justify-center mt-8 gap-3">
+                @foreach($reviews->chunk(3) as $i => $group)
+                    <button 
+                        class="w-3 h-3 rounded-full transition"
+                        :class="current === {{ $i }} ? 'bg-[#6CAB54]' : 'bg-gray-300'"
+                        @click="current = {{ $i }}"
+                    ></button>
+                @endforeach
+            </div>
+
+        </div>
+
+    <div class="text-center mt-10">
+
+        @auth
+            <!-- User logged in → open modal -->
+            <button 
+                @click="openModal = true"
+                class="bg-[#6CAB54] text-white px-5 py-3 rounded-xl font-semibold shadow hover:bg-[#5aa449]">
+                Tulis Review
+            </button>
+        @else
+            <!-- User not logged in → redirect to login -->
+            <a 
+                href="{{ route('login.form') }}"
+                class="bg-[#6CAB54] text-white px-5 py-3 rounded-xl font-semibold shadow hover:bg-[#5aa449] inline-block">
+                Tulis Review
+            </a>
+        @endauth
+
+    </div>
+
+        <!-- Review Popup Modal -->
+        <div 
+            x-show="openModal"
+            style="display:none"
+            class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+        >
+            <div 
+                x-transition 
+                class="bg-white rounded-2xl shadow-xl w-full max-w-lg p-8 relative"
+            >
+                <!-- Close Button -->
+                <button 
+                    @click="openModal = false"
+                    class="absolute right-4 top-4 text-gray-400 hover:text-red-500 text-xl"
+                >&times;</button>
+
+                <h2 class="text-2xl font-bold text-[#3B5D28] mb-6 text-center">
+                    Tulis Review Anda
+                </h2>
+
+                <form action="{{ route('user.review.store') }}" method="POST">
+                    @csrf
+
+                    <label class="block mb-1 font-semibold">Nama Anda</label>
+                    <input 
+                        type="text" 
+                        name="name_review" 
+                        class="w-full border p-3 rounded-lg mb-4"
+                        required
+                    >
+
+                    <label class="block mb-1 font-semibold">Komentar</label>
+                    <textarea 
+                        name="comment" 
+                        class="w-full border p-3 rounded-lg mb-4"
+                        required
+                    ></textarea>
+
+                    <label class="block mb-1 font-semibold">Rating</label>
+                    <select 
+                        name="rate" 
+                        class="w-full border p-3 rounded-lg mb-6"
+                        required
+                    >
+                        <option value="">-- Pilih Rating --</option>
+                        @for($i=1; $i<=5; $i++)
+                            <option value="{{ $i }}">{{ $i }} ⭐</option>
+                        @endfor
+                    </select>
+
+                    <button 
+                        type="submit"
+                        class="w-full bg-[#3B5D28] text-white py-3 rounded-lg font-semibold hover:bg-[#2c441f]"
+                    >
+                        Kirim Review
+                    </button>
+                </form>
+
+            </div>
+        </div>
+
     </section>
 
     <!-- Footer -->
-    <footer class="bg-stone-900 text-stone-400 py-8 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <p>&copy; 2025 Brew & Bean. All rights reserved.</p>
+    <footer class="bg-[#8BC46A] text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 items-start">
+
+                <!-- Logo -->
+                <div>
+                    <img src="{{ asset('images/LogoAis.png') }}" 
+                        alt="Ais Cafe Logo" 
+                        class="w-48 mb-4">
+                </div>
+
+                <!-- Address + Email -->
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-location-dot text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Address:</h4>
+                            <p class="text-sm opacity-90 w-52">
+                                Lorem ipsum dolor sit amet consectetur. Morbi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-envelope text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Email:</h4>
+                            <p class="text-sm opacity-90">Sapien scelerisque</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phone + Social -->
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-phone text-white text-3xl"></i>
+                        <div>
+                            <h4 class="font-semibold text-lg">+62 897-9792-939</h4>
+                            <p class="text-sm opacity-90">Lorem ipsum dolor sit amet</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-brands fa-facebook-f text-white text-xl"></i>
+                        </div>
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-brands fa-instagram text-white text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Divider -->
+            <div class="mt-12 border-t border-white/20 pt-6 text-center">
+                <p class="text-sm opacity-90">
+                    Copyright © 2025 Raden Wijaya All rights reserved.
+                </p>
+            </div>
         </div>
     </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50 hidden">
+        <img src="{{ asset('images/loading.gif') }}" alt="Loading..." class="w-24 h-24">
+    </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const forms = document.querySelectorAll("form");
+
+        forms.forEach(form => {
+            form.addEventListener("submit", function () {
+                document.getElementById("loadingOverlay").classList.remove("hidden");
+            });
+        });
+    });
+</script>
+
+
 </body>
 </html>
