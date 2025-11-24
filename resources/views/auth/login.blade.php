@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Ais Cafe - Login</title>
+    <title>AIS Cafe</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/LogoAis.png') }}">
     @vite(['resources/css/app.css', 'resources/js/login.js'])
 </head>
 <body class="bg-white min-h-screen flex items-center justify-center relative overflow-hidden">
